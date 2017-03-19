@@ -44,16 +44,16 @@ public class TriesBasedContactBook implements ContactBook
 
     }
 
-    public void searchContact(String prefix)
-    {
-        List<Contact> contactList = searchContactUtil(prefix);
-        for(Contact contact: contactList)
-        {
-            contact.printContactDetails();
-        }
-    }
+//    public void searchContact(String prefix)
+//    {
+//        List<Contact> contactList = searchContact(prefix);
+//        for(Contact contact: contactList)
+//        {
+//            contact.printContactDetails();
+//        }
+//    }
 
-    public List<Contact> searchContactUtil(String prefix)
+    public List<Contact> searchContact(String prefix)
     {
         if(prefix == null)
             return new LinkedList<Contact>();

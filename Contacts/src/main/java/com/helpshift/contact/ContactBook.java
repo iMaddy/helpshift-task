@@ -2,6 +2,8 @@ package com.helpshift.contact;
 
 import com.helpshift.exception.DuplicateDataException;
 
+import java.util.List;
+
 /**
  * Created by gitanjali on 17/03/17.
  */
@@ -15,5 +17,5 @@ public interface ContactBook
     /*
         list all contacts with matching prefix
      */
-    public void searchContact(String prefix);
+    public List<Contact> searchContact(String prefix);
 }

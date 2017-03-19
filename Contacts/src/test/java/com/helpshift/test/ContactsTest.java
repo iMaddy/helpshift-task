@@ -6,8 +6,6 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -52,7 +50,7 @@ public class ContactsTest
     public void testSearchEmptyContactBook() throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException
     {
         TriesBasedContactBook contactBook = new TriesBasedContactBook();
-        List<Contact> contactList = contactBook.searchContactUtil("madhukar");
+        List<Contact> contactList = contactBook.searchContact("madhukar");
         assertTrue("List is not empty",contactList.size() == 0);
     }
 
@@ -72,7 +70,7 @@ public class ContactsTest
         {
             e.printStackTrace();
         }
-        List<Contact> contactList = contactBook.searchContactUtil("sachin tendulkar");
+        List<Contact> contactList = contactBook.searchContact("sachin tendulkar");
         assertTrue("List is not empty",contactList.size() == 0);
     }
 
@@ -91,7 +89,7 @@ public class ContactsTest
         {
             e.printStackTrace();
         }
-        List<Contact> contactList = contactBook.searchContactUtil("madhukar bangar");
+        List<Contact> contactList = contactBook.searchContact("madhukar bangar");
         boolean correctSize = contactList.size() == 1;
         boolean correctContactMatch = contactList.get(0).getFirstName() == "madhukar" &&
                 contactList.get(0).getLastName() == "bangar";
@@ -115,7 +113,7 @@ public class ContactsTest
         {
             e.printStackTrace();
         }
-        List<Contact> contactList = contactBook.searchContactUtil("mad");
+        List<Contact> contactList = contactBook.searchContact("mad");
         boolean correctSize = contactList.size() == 2;
         List<String> nameList =Arrays.asList("madhukar", "maddy");
         List<String> lastName =Arrays.asList("bangar");
@@ -142,7 +140,7 @@ public class ContactsTest
         {
             e.printStackTrace();
         }
-        List<Contact> contactList = contactBook.searchContactUtil("madhukar");
+        List<Contact> contactList = contactBook.searchContact("madhukar");
         boolean correctSize = contactList.size() == 2;
         boolean correctContactMatch = contactList.get(0).getFirstName() == "madhukar"
                 && contactList.get(0).getLastName() == "";
@@ -166,7 +164,7 @@ public class ContactsTest
         {
             e.printStackTrace();
         }
-        List<Contact> contactList = contactBook.searchContactUtil("bangar");
+        List<Contact> contactList = contactBook.searchContact("bangar");
         boolean correctSize = contactList.size() == 2;
         List<String> nameList =Arrays.asList("madhukar", "maddy");
         List<String> lastName =Arrays.asList("bangar");
@@ -193,7 +191,7 @@ public class ContactsTest
         {
             e.printStackTrace();
         }
-        List<Contact> contactList = contactBook.searchContactUtil("ban");
+        List<Contact> contactList = contactBook.searchContact("ban");
         boolean correctSize = contactList.size() == 2;
         List<String> nameList =Arrays.asList("madhukar", "maddy");
         List<String> lastName =Arrays.asList("bangar");

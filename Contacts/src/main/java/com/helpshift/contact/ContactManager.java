@@ -14,8 +14,8 @@ import java.util.Scanner;
 public class ContactManager
 {
     ContactBook cBook;
-    ContactBookFactory contactBookFactory = new TriesContactBookFactory();
-    ContactFactory contactFactory = new GeneralContactFactory();
+    ContactBookFactory contactBookFactory;
+    ContactFactory contactFactory;
     final static int maxLength = 50;
 
     public boolean validContactString(String str)
@@ -25,6 +25,13 @@ public class ContactManager
 
     public ContactManager()
     {
+        cBook = contactBookFactory.createContactBook();
+    }
+
+    public ContactManager(ContactBookFactory cbf, ContactFactory cf)
+    {
+        contactBookFactory = cbf;
+        contactFactory = cf;
         cBook = contactBookFactory.createContactBook();
     }
 
@@ -103,7 +110,7 @@ public class ContactManager
 
     public static void main(String[] args)
     {
-        ContactManager cm = new ContactManager();
+        ContactManager cm = new ContactManager(new TriesContactBookFactory(),new GeneralContactFactory());
         cm.performContactOperations();
     }
 }
