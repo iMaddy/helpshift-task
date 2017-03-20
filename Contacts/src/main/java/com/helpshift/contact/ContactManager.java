@@ -6,6 +6,7 @@ import com.helpshift.contact.factories.GeneralContactFactory;
 import com.helpshift.contact.factories.TriesContactBookFactory;
 import com.helpshift.exception.DuplicateDataException;
 
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -105,7 +106,11 @@ public class ContactManager
             return;
         }
 
-        cBook.searchContact(prefix);
+        List<Contact> contactList = cBook.searchContact(prefix);
+        for (Contact contact : contactList)
+        {
+            contact.printContactDetails();
+        }
     }
 
     public static void main(String[] args)
